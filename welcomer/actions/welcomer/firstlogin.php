@@ -11,6 +11,7 @@ $id = elgg_get_site_entity()->guid;
 $firstlogin_usertag = "welcome_tag_".$id;
 
 // remember that the user has seen the first welcome message
+$_SESSION['welcomer_first_login'] = TRUE;
 $user->$firstlogin_usertag = TRUE;
 
 // send them to their original destination

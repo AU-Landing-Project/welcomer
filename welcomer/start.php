@@ -67,7 +67,11 @@ function welcomer_init(){
 
     // we've passed the first login check
     // check for subsequent login
-    if($secondlogin == 'yes' && !$user->$secondlogin_usertag && $user->welcomer_track_user){
+    // note session variable so that the second login welcome
+    // isn't shown on the same session
+    if($secondlogin == 'yes' && !$user->$secondlogin_usertag
+            && $user->welcomer_track_user
+            && !$_SESSION['welcomer_first_login']){
       // this is their second login
       if(empty($_SESSION['welcomer_return_url'])){
         $_SESSION['welcomer_return_url'] = current_page_url();

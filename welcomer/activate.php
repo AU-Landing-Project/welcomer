@@ -18,7 +18,7 @@ if(!$first && !$second){
   if($metadata[0]->value){
     // nothing is currently set for the current installation
     // we have existing info from 1.7, so we'll import it
-    elgg_set_plugin_setting('secondlogincontent', $metadata[0]->value, 'welcomer');
+    elgg_set_plugin_setting('firstlogincontent', $metadata[0]->value, 'welcomer');
   }
   
   // first login enable
