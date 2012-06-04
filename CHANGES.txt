@@ -1,0 +1,13 @@
+== Version History ==
+
+x.x:
+
+
+1.1 (06/04/2012):
+
+- Added a 'next login' site notification
+
+
+1.0:
+
+- Initial Release
