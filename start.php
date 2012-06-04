@@ -3,12 +3,44 @@
 
 // plugin init
 function welcomer_init(){
+  // add our css
+  elgg_extend_view('css/admin', 'welcomer/css');
+  
   //register plugin hooks
   if(elgg_is_logged_in()){
     elgg_register_page_handler('welcomer', 'welcomer_pagehandler');
     
     elgg_register_action('welcomer/firstlogin', elgg_get_plugins_path() . 'welcomer/actions/welcomer/firstlogin.php');
     elgg_register_action('welcomer/secondlogin', elgg_get_plugins_path() . 'welcomer/actions/welcomer/secondlogin.php');
+    elgg_register_action('welcomer/settings/save', elgg_get_plugins_path() . 'welcomer/actions/welcomer/settings/save.php');
+    
+    // first handle notifications
+    // note that this will allow a notification on the very first login concurrent with the welcome page
+    if(elgg_is_active_plugin('notifications') && elgg_get_plugin_setting('nextlogin_notification', 'welcomer') == 'yes'){
+      $timestamp = elgg_get_plugin_setting('nextlogin_notification_timestamp', 'welcomer');
+      
+      if(!empty($timestamp)){
+        $metadata = 'nextlogin_notification_' . $timestamp;
+      
+        if(!elgg_get_logged_in_user_entity()->$metadata){
+          // they haven't received this notification yet
+          // set flag
+          $subject = elgg_get_plugin_setting('nextlogin_notification_subject', 'welcomer');
+          $content = elgg_get_plugin_setting('nextlogin_notification_content', 'welcomer');
+          
+          elgg_get_logged_in_user_entity()->$metadata = TRUE;
+          
+          notify_user(
+                  elgg_get_logged_in_user_guid(),
+                  elgg_get_site_entity()->guid,
+                  $subject,
+                  $content,
+                  NULL,
+                  'site'
+                  );
+        }
+      }
+    }
     
     $firstlogin = elgg_get_plugin_setting('firstlogin', 'welcomer');
     $secondlogin = elgg_get_plugin_setting('secondlogin', 'welcomer');
