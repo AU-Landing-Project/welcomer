@@ -2,6 +2,10 @@
 
 x.x:
 
+1.2 (07/25/2013):
+- move checks from init to the router and index hooks
+- give other plugins a fighting chance to do something first
+- use plugin hooks for allowed handlers to execute before welcomer takes over
 
 1.1 (06/04/2012):
 
