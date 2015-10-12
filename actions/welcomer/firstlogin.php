@@ -1,5 +1,7 @@
 <?php
 
+namespace AU\Welcomer;
+
 $user = elgg_get_logged_in_user_entity();
 
 // sanity check

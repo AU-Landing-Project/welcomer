@@ -2,6 +2,9 @@
 
 x.x:
 
+2.0 (10/12/2015):
+ - Elgg 1.9+ upgrade
+
 1.2 (07/25/2013):
 - move checks from init to the router and index hooks
 - give other plugins a fighting chance to do something first

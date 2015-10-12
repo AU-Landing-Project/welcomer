@@ -1,5 +1,7 @@
 <?php
 
+namespace AU\Welcomer;
+
 $options = array(
   'name' => 'submit',
   'value' => elgg_echo('welcomer:firstlogin:continue'),

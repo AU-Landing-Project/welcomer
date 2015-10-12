@@ -1,6 +1,6 @@
 <?php
 
-$english = array(
+return array(
 
     'welcomer:activate:firstlogin' => 'Enable first login welcome page?',
     'welcomer:activate:nextlogin_notification' => 'Enable next login notifications',
@@ -14,5 +14,3 @@ $english = array(
     'welcomer:secondlogin:content' => 'Edit message for second login',
     'welcomer:secondlogin:continue' => 'Continue',
 );
-					
-add_translation("en",$english);
