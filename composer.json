@@ -1,0 +1,20 @@
+{
+    "name": "au/welcomer",
+    "type": "elgg-plugin",
+    "description": "Displays a specific page on the first login of a user, optionally a second page on the second login, and a site notification on the next login after it's set",
+    "homepage": "https://github.com/AU-Landing-Project/welcomer",
+    "keywords": ["elgg", "plugin", "welcomer"],
+    "license": "GPL-2.0",
+    "authors": [
+        {
+            "name": "Matt Beckett"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/AU-Landing-Project/welcomer/issues"
+    },
+    "require": {
+        "php": ">=5.4",
+        "composer/installers": ">=1.0.8"
+    }
+}
